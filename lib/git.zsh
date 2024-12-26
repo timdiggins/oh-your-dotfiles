@@ -1,5 +1,5 @@
 git_clone_or_pull() {
-  echo "(git_clone_or_pull $1 $2)"
+  echo "   [[[ git_clone_or_pull $1 $2 ]]]"
   if [ -d $2 ]; then
     git_pull $1 $2
   else
@@ -29,7 +29,7 @@ function git_pull() {
   push=$(head -2 $1| tail -1)
   dest=$2
 
-  echo 'git -C "$dest" remote set-url origin "$fetch"'
+  echo "   [[[ git -C $dest remote set-url origin $fetch ]]]"
   git -C "$dest" remote set-url origin "$fetch"
   if [ "$fetch" != "$push" ]; then
     git -C "$dest" remote set-url origin --push $push
