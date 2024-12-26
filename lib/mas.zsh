@@ -22,7 +22,8 @@ function mas_upgrade_formulas() {
   if type mas > /dev/null; then
     outdated=$(mas outdated 2> /dev/null | cut -d ' ' -f2- | cut -d '(' -f1 | cut -d– -f1 | cut -d- -f1 | sed -e 's/ *$//' | sed -e :a -e '$!N; s/\n/, /; ta')
     if [ -n "$outdated" ]; then
-      run "upgrading apps ($outdated)" "mas upgrade"
+#      run "upgrading apps ($outdated)" "mas upgrade"
+       echo "some apps are outdated, but not updating: $outdated"
     fi
   fi
 }
@@ -66,7 +67,7 @@ function login_to_Mac_App_Store () {
 	  do
 		  sleep 3
     	  echo -e "… zzz …."
-  	done	
+  	done
   done
   echo -e "You are signed into the Mac App Store."
   signed_in_user=$(mas account)
