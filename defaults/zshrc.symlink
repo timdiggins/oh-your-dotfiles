@@ -103,3 +103,4 @@ if [[ "$DOTFILES_PROFILE_ZSHRC" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
 fi
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
